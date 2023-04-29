@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculater.io</title>
+    <link rel="stylesheet" href="calculatrice.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="container_input">
+        <div class="container_number">0</div>
+    </div>
+    <div class="container_button_all">
+        <div class="container_button" style="margin-top: 0px;">
+            <button class="button" style="margin-right: 20px; margin-left: 20px;">C</button>
+            <button class="button" style="margin-right: 20px;">+/-</button>
+            <button class="button" style="margin-right: 20px;">%</button>
+            <button class="button" style="margin-right: 20px;">/</button>
+        </div>
+        <div class="container_button">
+            <button class="button" style="margin-right: 20px; margin-left: 20px; background-color: rgb(15, 15, 15); color: white;">7</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">8</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">9</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(226, 152, 15); color: white;">x</button>
+        </div>
+        <div class="container_button">
+            <button class="button" style="margin-right: 20px; margin-left: 20px; background-color: rgb(15, 15, 15); color: white;">4</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">5</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">6</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(226, 152, 15); color: white;">-</button>
+        </div>
+        <div class="container_button">
+            <button class="button" style="margin-right: 20px; margin-left: 20px; background-color: rgb(15, 15, 15); color: white;">1</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">2</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white;">3</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(226, 152, 15); color: white;">+</button>
+        </div>
+
+        <div class="container_button">
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white; width: 130px; border-radius: 30px; transform: translateX(10px); justify-content: left; padding-left: 22px;">0</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(15, 15, 15); color: white; transform: translateX(10px);">,</button>
+            <button class="button" style="margin-right: 20px; background-color: rgb(226, 152, 15); color: white; transform: translateX(10px);">=</button>
+        </div>
+    </div>
+</div>
+
+<body>
+    <script>
+    const containerNumber = document.querySelector('.container_number');
+        let firstNumber = null;
+        let secondNumber = null;
+        let operator = null;
+
+        document.querySelectorAll('.button').forEach((button) => {
+            button.addEventListener('click', () => {
+                if(button.textContent === "C") {
+                    containerNumber.textContent = "0";
+                    firstNumber = null;
+                    secondNumber = null;
+                    operator = null;
+                } else if(button.textContent === "%") {
+                    containerNumber.textContent = parseFloat(containerNumber.textContent) / 100;
+                } else if(button.textContent === "+" || button.textContent === "-" || button.textContent === "x" || button.textContent === "/") {
+                    firstNumber = Number(containerNumber.textContent);
+                    operator = button.textContent;
+                    containerNumber.textContent = "0";
+                } else if(button.textContent === "=") {
+                    secondNumber = Number(containerNumber.textContent);
+                    if(operator === "+") {
+                        containerNumber.textContent = firstNumber + secondNumber;
+                    } else if(operator === "-") {
+                        containerNumber.textContent = firstNumber - secondNumber;
+                    } else if(operator === "x") {
+                        containerNumber.textContent = firstNumber * secondNumber;
+                    } else if(operator === "/") {
+                        containerNumber.textContent = firstNumber / secondNumber;
+                    }
+                    firstNumber = null;
+                    secondNumber = null;
+                    operator = null;
+                } else {
+                    if(containerNumber.textContent === "0") {
+                        containerNumber.textContent = "";
+                    }
+                    containerNumber.textContent += button.textContent;
+                    containerNumber.style.whiteSpace = "nowrap";
+                }
+            });
+        });
+
+    
+</script>
+
+</body>
+</html>
+

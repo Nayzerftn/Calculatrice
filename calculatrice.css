@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-demi);
+}
+
+:root{
+    --black: black;
+    --black-demi: rgb(48, 48, 48);
+    --white: white;
+    --purple: purple;
+    --pink: pink;
+    --gold: gold;
+    --silver: silver;
+    --orange: orange;
+    --grey: rgb(184, 184, 184);
+    --blue: blue;
+    --darkblue: darkblue;
+    --cyan: cyan;
+    --red: red;
+    --brown: brown;
+    --green: green;
+}
+
+.container{
+    height: 500px;
+    width: 400px;
+    margin-top: 60px;
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    background-color: var(--black);
+    box-shadow: 10px 10px 20px var(--black), 0 0 40px var(--black);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_input{
+    height: 100px;
+    width: 95%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.container_number{
+    height: 90%;
+    width: 350px;
+    font-size: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: var(--white);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.container_button_all{
+    height: 73%;
+    width: 95%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;   
+}
+
+.container_button{
+    height: 15%;
+    width: 90%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.button{
+    height: 100%;
+    width: 55px;
+    border: none;
+    border-radius: 100%;
+    background: var(--grey);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: var(--black-demi);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
